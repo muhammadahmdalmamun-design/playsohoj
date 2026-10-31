@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="bn"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B5D4F">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>প্লে কনসোল সহজ</title>
+<style>
+:root{--bg:#EDF5F1;--sf:#fff;--tx:#10302B;--mu:#4D6B65;--ac:#0B5D4F;--ok:#1E8A4C;--bd:#C6DCD4;--go:#E3B04B}
+@media (prefers-color-scheme:dark){:root{--bg:#0B2022;--sf:#12363A;--tx:#E6F1ED;--mu:#9DBDB6;--ac:#5BD1B5;--ok:#6FCF97;--bd:#25504F}}
+*{box-sizing:border-box}html{scroll-padding-top:150px}body{margin:0;background:var(--bg);color:var(--tx);font-family:"Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif;font-size:20px;line-height:1.7;padding:0 14px max(24px,env(safe-area-inset-bottom))}
+.w{max-width:560px;margin:0 auto}h1{font-size:1.45rem;margin:4px 0;line-height:1.4}.m{color:var(--mu);font-size:.95rem}
+.top{background:linear-gradient(135deg,#0B5D4F,#0E7C86);color:#fff;margin:0 -14px;padding:max(14px,env(safe-area-inset-top)) 14px 12px;border-radius:0 0 24px 24px;position:sticky;top:0;z-index:5;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.top b{font-size:1.15rem}.top .pc{float:right;font-size:1.6rem;font-weight:700;color:var(--go)}
+.pb{height:10px;background:rgba(255,255,255,.25);border-radius:8px;overflow:hidden;margin-top:8px}.pb i{display:block;height:100%;background:linear-gradient(90deg,#6FCF97,var(--go));transition:width .4s}
+.dots{display:flex;gap:5px;margin-top:8px}.dots span{flex:1;height:6px;border-radius:4px;background:rgba(255,255,255,.28)}.dots .d{background:#6FCF97}.dots .n{background:#fff}
+.c{background:var(--sf);border:2px solid var(--ac);border-radius:18px;padding:16px;margin:14px 0}
+.sb{border-radius:12px;padding:10px 12px;margin:8px 0;font-size:.98rem;white-space:pre-line}.sb em{display:block;font-style:normal;font-weight:700}.s1{background:#E3F4EA;color:#14532D}.s2{background:#FDE9E5;color:#7A1F14}.s3{background:#FFF4D6;color:#5A4306}
+button,a.b{display:block;width:100%;font:inherit;font-weight:700;border:0;border-radius:14px;padding:15px;margin-top:10px;cursor:pointer;text-align:center;text-decoration:none}
+button:focus-visible,a.b:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--go);outline-offset:2px}button:disabled{opacity:.45}
+.g{background:var(--ok);color:#fff;font-size:1.2rem}.s{background:transparent;color:var(--ac);border:2px solid var(--ac)}a.b{background:var(--ac);color:var(--bg)}.t{background:transparent;color:var(--mu);font-weight:500;font-size:.95rem;padding:8px}
+input,textarea{width:100%;font:inherit;padding:11px;border:1px solid var(--bd);border-radius:10px;background:var(--sf);color:var(--tx);margin-top:6px}
+.bx{background:var(--sf);border:1px dashed var(--ac);border-radius:12px;padding:10px 12px;margin-top:10px}
+.r{padding:7px 10px;margin:8px 0;border-radius:10px;font-size:.98rem}.ok{background:#E3F4EA;color:#14532D}.no{background:#FDE9E5;color:#7A1F14}.wn{background:#FFF4D6;color:#5A4306}
+label.k{display:flex;gap:10px;align-items:flex-start;margin-top:12px;font-weight:700}label.k input{width:26px;height:26px;margin:4px 0 0;flex:none}
+@media (prefers-color-scheme:dark){.s1,.ok{background:#173B2A;color:#CDEFD9}.s2,.no{background:#43211C;color:#F6CFC8}.s3,.wn{background:#3A3010;color:#F2DFA0}}
+</style></head><body><div class="w">
+<div class="top"><span class="pc" id="pc"></span><b>🏪 প্লে কনসোল সহজ</b><div class="m" id="pt" style="color:#D6EFE7"></div><div class="pb"><i id="pi"></i></div><div class="dots" id="ds"></div></div>
+<div id="v"></div>
+<button class="t" id="bk">← আগের ধাপ</button>
+<p class="m">লেখা গোনা, লিংক যাচাই, ১৪ দিন গণনা ও বার্তা তৈরি এই সফটওয়্যার নিজেই করে। প্লে কনসোলে ক্লিক করা ও ফর্ম পূরণ আপনাকে করতে হবে, কারণ সেটা গুগলের নিজের ওয়েবসাইট। প্লে কনসোলের মেনু ও নিয়ম বদলাতে পারে, ওখানে যা লেখা থাকে সেটাই চূড়ান্ত।</p>
+</div>
+<script>
+var K="play-sohoj-v1",D={},cur=0,CON="https://play.google.com/console";
+try{D=JSON.parse(localStorage.getItem(K)||"{}")}catch(e){}
+function sv(){try{localStorage.setItem(K,JSON.stringify(D))}catch(e){}}
+function E(t,c,x){var d=document.createElement(t);if(c)d.className=c;if(x)d.textContent=x;return d}
+function bn(n){return String(n).replace(/\d/g,function(d){return"০১২৩৪৫৬৭৮৯"[d]})}
+function cp(b,t){try{navigator.clipboard.writeText(t).then(function(){b.textContent="✔ কপি হয়েছে"}).catch(function(){prompt("কপি করুন:",t)})}catch(e){prompt("কপি করুন:",t)}}
+function lk(t,u){var a=E("a","b",t);a.href=u;a.target="_blank";a.rel="noopener";return a}
+var MSG="আসসালামু আলাইকুম। আমার একটা অ্যাপ প্লে স্টোরে দেওয়ার জন্য ১৪ দিন টেস্ট করতে হবে। দয়া করে এই লিংকে ঢুকে টেস্টার হিসেবে যুক্ত হোন, তারপর প্লে স্টোর থেকে অ্যাপটা নামিয়ে ১৪ দিন মাঝেমধ্যে খুলে দেখবেন। এর মাঝে টেস্টার থেকে বের হবেন না। জাযাকাল্লাহু খাইরান।\n\nলিংক: ";
+var CL=[["App access","App content → App access। লগইন ছাড়াই সব ব্যবহার করা গেলে ‘All functionality is available without special access’ বেছে Save করুন।"],["Ads","App content → Ads। অ্যাপে বিজ্ঞাপন না থাকলে ‘No’ বেছে Save করুন।"],["Content rating","App content → Content rating → Start। সত্য উত্তর দিন, ইমেইল দিন, Save করে Apply চাপুন।"],["Target audience","App content → Target audience। নিজের অ্যাপের আসল বয়সের দল বেছে নিন, সত্য বেছে Save করুন।"],["Data safety","App content → Data safety। অ্যাপ যে তথ্য সত্যিই নেয় বা রাখে সেটাই লিখুন। কিছু না নিলে সেটাই বলুন।"]];
+var S=[
+["📱 প্লে কনসোলে অ্যাপ বানান","এখান থেকেই আপনার অ্যাপের জায়গা তৈরি হয়।","না বানালে আপলোডের কোনো জায়গাই থাকবে না।","✅ Create app চাপুন → নাম লিখুন → ভাষা বাংলা → App → Free বেছে নিন → সম্মতির ঘরে টিক দিয়ে Create app চাপুন।\n⛔ নামে অন্য কোম্পানির নাম বা ‘No.1’ জাতীয় কথা লিখবেন না।","OP"],
+["✍️ স্টোরের লেখা তৈরি করুন","এই লেখাই মানুষ প্লে স্টোরে প্রথম পড়ে।","অক্ষর বেশি হলে প্লে কনসোল লেখা নেবে না।","✅ সফটওয়্যার নিজেই অক্ষর গুনে দেয়। সবুজ থাকলে ঠিক আছে, তারপর কপি করে প্লে কনসোলের Store listing-এ বসান।\n⛔ যা অ্যাপে নেই তা বর্ণনায় লিখবেন না।","ST"],
+["🖼️ ছবি বসান","আইকন ও স্ক্রিনশট ছাড়া স্টোরের পাতা সম্পূর্ণ হয় না।","ছবির মাপ ভুল হলে ছবি বাতিল হয়।","✅ ক্যানভা সহজ দিয়ে ছবি বানিয়ে Store listing → Graphics-এ দিন: অ্যাপ আইকন (৫১২×৫১২), ফিচার গ্রাফিক (১০২৪×৫০০), ফোনের স্ক্রিনশট (কমপক্ষে ২টি)।\n⛔ অন্য কারও ছবি ব্যবহার করবেন না।",null],
+["🔒 গোপনীয়তা নীতির লিংক","প্লে স্টোর একটা খোলা লিংক চায় যেখানে আপনার নীতি লেখা আছে।","লিংক না থাকলে বা না খুললে অ্যাপ আটকে যায়।","✅ লিংক https:// দিয়ে শুরু হবে। সফটওয়্যার নিজেই খুলে দেখে নেয়। তারপর App content → Privacy policy-তে বসান।\n⛔ ফোনের ফাইলের ঠিকানা চলবে না।","PL"],
+["📋 App content-এর পাঁচটা ঘর","Dashboard-এর Set up your app তালিকার এই ঘরগুলো ভরা না থাকলে প্রকাশ করা যায় না।","একটা ঘর বাকি থাকলেও আপলোডের পর আটকে যাবে।","✅ প্রতিটা ঘর করে টিক দিন। সবগুলো হলে এগোনোর বোতাম খুলবে।\n⛔ ভুল বা বানানো তথ্য দেবেন না। পরে অ্যাপ বন্ধ হতে পারে।","CL"],
+["🚀 AAB আপলোড করুন","এটাই আপনার অ্যাপ।","আপলোড ছাড়া টেস্টার বা স্টোর কিছুই হবে না।","✅ Test and release → Testing → Closed testing → Create track → Create new release → AAB ফাইল দিন → Save → Next।\n⛔ APK দেবেন না। প্লে স্টোর AAB চায়।",null],
+["👥 ১২ জন টেস্টার জোগাড় করুন","নতুন ব্যক্তিগত অ্যাকাউন্টে কমপক্ষে ১২ জন টেস্টার ১৪ দিন একটানা লাগে।","১২ জনের কম হলে প্রোডাকশনের আবেদন করা যায় না।","✅ Testers ট্যাবে ইমেইল তালিকা বানিয়ে ১২ জনের জিমেইল দিন। নিচের লিংক বসিয়ে বার্তা কপি করে তাদের পাঠান।\n⏭️ আপনার অ্যাকাউন্ট ২০২৩-এর ১৩ নভেম্বরের আগের বা প্রতিষ্ঠানের হলে এই তিন ধাপ লাগবে না।","TS"],
+["📅 ১৪ দিন গুনুন","১২ জন যুক্ত হওয়ার পর থেকে একটানা ১৪ দিন গুনতে হয়।","মাঝখানে টেস্টার কমে গেলে গণনা আবার শুরু হতে পারে।","✅ ১২ জন যুক্ত হওয়ার দিনের তারিখ দিন। সফটওয়্যার আজ কত দিন হলো নিজেই গুনে দেবে।\n⛔ মাঝপথে টেস্টারদের বের হতে দেবেন না।","TR"],
+["📨 প্রোডাকশনের আবেদন","১৪ দিন পূর্ণ হলে গুগলের কাছে প্রকাশের অনুমতি চাইতে হয়।","আবেদন না করলে অ্যাপ সবার জন্য খুলবে না।","✅ Dashboard → Apply for production চাপুন। প্রশ্নের উত্তর সত্য ও ছোট লিখুন (প্রতিটি সর্বোচ্চ ৩০০ অক্ষর): কীভাবে টেস্টার পেলেন, কী মতামত পেলেন, কী ঠিক করলেন।\n⛔ বানানো কথা লিখবেন না।",null],
+["🎯 প্রোডাকশনে প্রকাশ করুন","এখান থেকেই অ্যাপ সবার জন্য খোলে।","না করলে অ্যাপ শুধু টেস্টারদের কাছেই থাকবে।","✅ Production → Create new release → AAB দিন → Next → Save → Send for review। রিভিউ শেষ হতে কয়েক দিন লাগতে পারে।\n⛔ রিভিউ চলাকালীন নতুন কিছু বদলাবেন না।",null]];
+function go(){var done=S.filter(function(_,i){return D[i]}).length,pc=Math.round(done*100/S.length);
+document.getElementById("pc").textContent=bn(pc)+"%";document.getElementById("pt").textContent="✔ "+bn(done)+" শেষ · ⏳ "+bn(S.length-done)+" বাকি";document.getElementById("pi").style.width=pc+"%";
+cur=S.findIndex(function(_,i){return!D[i]});var ds=document.getElementById("ds");ds.innerHTML="";S.forEach(function(_,i){ds.appendChild(E("span",D[i]?"d":i===cur?"n":""))});
+var v=document.getElementById("v");v.innerHTML="";
+if(cur<0){var f=E("div","c");f.appendChild(E("h1","","আলহামদুলিল্লাহ 🎉"));f.appendChild(E("p","","সব ধাপ শেষ। এখন রিভিউয়ের অপেক্ষা। রিভিউ শেষ হলে অ্যাপ প্লে স্টোরে দেখা যাবে, ইনশাআল্লাহ।"));v.appendChild(f);document.getElementById("bk").style.display="";return}
+var s=S[cur],c=E("div","c"),act=s[4],ok=E("button","g","✔ হয়ে গেছে");
+c.appendChild(E("div","m","ধাপ "+bn(cur+1)+" / "+bn(S.length)));c.appendChild(E("h1","",s[0]));
+[["🎯 কেন করতে হবে",s[1],"s1"],["⛔ না করলে কী হবে",s[2],"s2"],["⭐ কোনটা ভালো, কোনটা ভালো না",s[3],"s3"]].forEach(function(q){var b=E("div","sb "+q[2]);b.appendChild(E("em","",q[0]));b.appendChild(document.createTextNode(q[1]));c.appendChild(b)});
+if(act==="OP")c.appendChild(lk("🏪 Play Console খুলুন",CON));
+if(act==="ST"){var f2=D.s=D.s||{n:"",s:"",f:""};[["অ্যাপের নাম",30,"n"],["ছোট বর্ণনা",80,"s"],["পূর্ণ বর্ণনা",4000,"f"]].forEach(function(q){var bx=E("div","bx"),i=E(q[2]==="f"?"textarea":"input"),ct=E("div","m"),cb=E("button","s","📋 কপি করুন");bx.appendChild(E("div","m",q[0]+" (সর্বোচ্চ "+bn(q[1])+" অক্ষর)"));i.value=f2[q[2]];if(q[2]==="f")i.rows=6;
+var u=function(){var n=Array.from(i.value).length;ct.textContent=bn(n)+" / "+bn(q[1])+(n>q[1]?" ⛔ বেশি হয়ে গেছে":" ✔");ct.style.color=n>q[1]?"#C0392B":"var(--ok)";ct.style.fontWeight="700"};
+i.oninput=function(){f2[q[2]]=i.value;sv();u();cb.textContent="📋 কপি করুন"};cb.onclick=function(){cp(cb,i.value)};u();bx.appendChild(i);bx.appendChild(ct);bx.appendChild(cb);c.appendChild(bx)})}
+if(act==="PL"){var pi=E("input"),st=E("div","r"),tm;pi.placeholder="https://আপনার-নাম.github.io/privacy/";pi.value=D.pl||"";
+var vf=async function(){var u=pi.value.trim();D.pl=u;sv();if(!u)return;if(!/^https:\/\//i.test(u)){st.className="r no";st.textContent="✖ লিংক https:// দিয়ে শুরু হতে হবে";return}st.className="r wn";st.textContent="⏳ নিজে যাচাই করছি…";try{var r=await fetch(u);if(!r.ok)throw 0;st.className="r ok";st.textContent="✔ লিংক খুলছে। এবার প্লে কনসোলে বসান।"}catch(e){st.className="r no";st.textContent="✖ লিংক খুলতে পারিনি। লিংক ঠিক আছে কি, সাইট চালু হয়েছে কি দেখুন।"}};
+pi.oninput=function(){clearTimeout(tm);tm=setTimeout(vf,800)};var cb2=E("button","s","📋 লিংক কপি করুন");cb2.onclick=function(){cp(cb2,pi.value.trim())};c.appendChild(pi);c.appendChild(st);c.appendChild(cb2);if(pi.value)vf()}
+if(act==="CL"){var cl=D.cl=D.cl||[];CL.forEach(function(q,i){var lb=E("label","k"),ck=E("input");ck.type="checkbox";ck.checked=!!cl[i];ck.onchange=function(){cl[i]=ck.checked;sv();ok.disabled=!CL.every(function(_,j){return cl[j]})};lb.appendChild(ck);var sp=E("span");sp.textContent=q[0];lb.appendChild(sp);c.appendChild(lb);c.appendChild(E("div","m",q[1]))});ok.disabled=!CL.every(function(_,j){return cl[j]});c.appendChild(lk("🏪 Play Console খুলুন",CON))}
+if(act==="TS"){var li=E("input");li.placeholder="টেস্টারদের জন্য আপনার opt-in লিংক বসান";li.value=D.ol||"";var bx2=E("div","bx"),mt=E("div","m"),cb3=E("button","s","📋 বার্তা কপি করুন");var up=function(){D.ol=li.value.trim();sv();mt.textContent=MSG+(D.ol||"(লিংক বসান)")};li.oninput=up;up();cb3.onclick=function(){cp(cb3,MSG+(D.ol||""))};bx2.appendChild(mt);c.appendChild(li);c.appendChild(bx2);c.appendChild(cb3);
+var sk=E("button","s","⏭️ আমার অ্যাকাউন্টে এটা লাগে না, এড়িয়ে যাই");sk.onclick=function(){D[6]=D[7]=D[8]=true;sv();go();scrollTo(0,0)};c.appendChild(sk)}
+if(act==="TR"){var di=E("input"),rs=E("div","r");di.type="date";di.value=D.d||"";var cc=function(){D.d=di.value;sv();if(!di.value){rs.className="r wn";rs.textContent="১২ জন যুক্ত হওয়ার দিনের তারিখ দিন।";ok.disabled=true;return}var n=Math.floor((Date.now()-new Date(di.value+"T00:00:00").getTime())/864e5);if(n<0){rs.className="r no";rs.textContent="✖ তারিখটা ভবিষ্যতের। ঠিক করুন।";ok.disabled=true;return}var g=n>=14;rs.className="r "+(g?"ok":"wn");rs.textContent=g?"✔ "+bn(n)+" দিন হয়ে গেছে। এবার আবেদন করা যাবে।":"⏳ আজ "+bn(n)+" দিন। বাকি "+bn(14-n)+" দিন।";ok.disabled=!g};di.oninput=cc;c.appendChild(di);c.appendChild(rs);cc()}
+if(act!=="TS"||true){ok.onclick=function(){D[cur]=true;sv();go();scrollTo(0,0)};c.appendChild(ok)}
+if(act==="CL"||act==="TR"){} 
+v.appendChild(c);document.getElementById("bk").style.display=cur>0?"":"none"}
+document.getElementById("bk").onclick=function(){var i=cur<0?S.length:cur;if(i>0){delete D[i-1];sv();go();scrollTo(0,0)}};
+(function(){var r=document.documentElement,f=r.requestFullscreen||r.webkitRequestFullscreen,n=0;function af(){if(!f||document.fullscreenElement||n++>2)return;try{var p=f.call(r);if(p&&p.catch)p.catch(function(){})}catch(e){}}["click","touchend"].forEach(function(e){document.addEventListener(e,af,{once:false})});document.addEventListener("fullscreenchange",function(){if(document.fullscreenElement){n=9}})})();
+go();
+if("serviceWorker" in navigator&&location.protocol.indexOf("http")===0){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
+</script></body></html>
