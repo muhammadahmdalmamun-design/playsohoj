@@ -1,0 +1,17 @@
+{
+  "name": "প্লে কনসোল সহজ",
+  "short_name": "প্লে সহজ",
+  "description": "প্লে স্টোরে অ্যাপ প্রকাশের সহজ ধাপে ধাপে সফটওয়্যার",
+  "lang": "bn",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "portrait",
+  "background_color": "#EDF5F1",
+  "theme_color": "#0B5D4F",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}
